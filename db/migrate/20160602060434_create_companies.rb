@@ -6,6 +6,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.text :description_short
       t.text :description_long
       t.string :web_address
+      t.string :user_id
 
       t.timestamps null: false
     end
