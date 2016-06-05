@@ -1,1 +1,11 @@
 <h1>Предприятия</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <% @companies.each do |company| %>
+          <%= render partial: 'company', locals: {company: company} %>
+      <% end %>
+    </div>
+   </div>
+</div>

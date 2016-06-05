@@ -5,11 +5,15 @@ Rails.application.routes.draw do
 
   resources :companies, :offers, :job_vacancies
 
-  # authenticated :admin do
-  #   root 'companies#index', as: :authenticated_admin_root
+  # authenticated :user do
+  #   root 'companies#index', as: :authenticated_user_root
   # end
 
-  # namespace :admin do
-  # end
+  namespace :user do
+    resources :companies do
+      resources :offers
+      resources :job_vacancies
+    end
+  end
 
 end
