@@ -1,0 +1,20 @@
+<article class="company">
+  <h2>
+    <%= link_to company.name, company_path(company.id) %>
+  </h2>
+  <hr>
+  <%#= link_to image_tag(company.image_url, size: '200', class: "img-responsive",) %>
+  <p>
+    <span class="glyphicon glyphicon-home"></span> <%#= company.address.name %>
+  </p>
+
+  <p><span class="glyphicon glyphicon-phone-alt"></span> <%#= company.telephone.phone %></p>
+  <%= truncate(company.description_short, :length => 650) %>
+</article>
+<div class="read_more">
+  <%= link_to company_path(company.id), {:class => "btn btn-primary", :role => "button"} do %>
+      <%= 'read more' %> <span class="glyphicon glyphicon-chevron-right"></span>
+  <% end %>
+</div>
+<hr>
+<br/>
