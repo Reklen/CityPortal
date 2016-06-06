@@ -1,11 +1,15 @@
-<h1>Предприятия</h1>
-
-<div class="container">
+<div class="row">
+  <%= form_tag results_path, method: :get, role: "search" do %>
+      <%= text_field_tag :query, params[:query], class: "col-sm-5 col-sm-offset-3" %>
+      <%= submit_tag "find", name: nil, class: "col-sm-1" %>
+  <% end %>
+</div>
+<div class="panel-body">
+  <% @companies.each do |company| %>
+      <%= render partial: "companies/partials/company", locals: {company: company} %>
+  <% end %>
   <div class="row">
-    <div class="col-md-8">
-      <% @companies.each do |company| %>
-          <%= render partial: 'company', locals: {company: company} %>
-      <% end %>
-    </div>
-   </div>
+    <%= render partial: "companies/partials/paginator" %>
+  </div>
+
 </div>

@@ -9,7 +9,7 @@ class User::OffersController < User::ApplicationController
   end
 
   def new
-
+    
   end
 
   def create

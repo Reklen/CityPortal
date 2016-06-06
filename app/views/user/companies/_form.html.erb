@@ -1,0 +1,47 @@
+<div class="body_panel panel-default">
+
+  <div class="panel-body">
+
+    <div class='field form-group'>
+      <%= f.label :name, class: 'col-md-2 control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='field form-group'>
+      <%= f.label :description_short, class: 'col-md-2 control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_area :description_short, class: 'form-control', rows: 2 %>
+      </div>
+    </div>
+
+    <div class='field form-group'>
+      <%= f.label :description_long, class: 'col-md-2 control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_area :description_long, class: 'form-control', rows: 4 %>
+      </div>
+    </div>
+
+    <div class='field form-group'>
+      <%= f.label :www, class: 'col-md-2 control-label' %>
+      <div class='col-sm-10'>
+        <%= f.text_field :web_address, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='field form-group'>
+      <%= f.label :image, class: 'col-md-2 control-label' %>
+      <div class='col-sm-3'>
+        <%= f.file_field :image, multiple: false %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="actions form-group">
+  <div class="col-sm-offset-1 col-sm-10">
+    <%= f.submit "Save" %>
+  </div>
+</div>

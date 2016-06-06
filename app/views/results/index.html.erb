@@ -1,0 +1,5 @@
+<div class="panel-body">
+  <% @search_results.each do |company| %>
+      <%= render partial: "companies/partials/company", locals: {company: company} %>
+  <% end %>
+</div>

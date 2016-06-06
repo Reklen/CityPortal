@@ -1,0 +1,20 @@
+<div class="well">
+  <div class="row">
+
+    <%= link_to image_tag(company.image_url, size: '100', class: "img-responsive",) %>
+
+    <h2><%= link_to company.name, company_path(company.id) %></h2>
+    <span class="glyphicon glyphicon-home"></span> <%#= company.addresses.first.name %>
+
+    <div class="btn-group btn-group-sm">
+      <div class="btn btn-default">
+        <%= link_to '+Акция', new_user_company_offer_path(company) %>
+      </div>
+
+      <div class="btn btn-default">
+        <%= link_to '+Вакансия', new_user_company_job_vacancy_path(company) %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,14 +1,8 @@
-class OffersController < ApplicationController
-
-  before_filter :find_item, only: [:show]
+class ResultsController < ApplicationController
   before_filter :user_signed, only: [:index, :show]
 
   def index
-    @offers = Offer.all
-  end
-
-  def show
-
+    @search_results = Company.search_by_name(params[:query])
   end
 
   private
@@ -20,9 +14,4 @@ class OffersController < ApplicationController
       @user = current_user
     end
   end
-
-  def find_item
-    @offer = Offer.where(id: params[:id]).first
-  end
-
 end

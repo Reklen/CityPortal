@@ -17,6 +17,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.body_panel {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.navbar-default {
+  @extend .navbar-default;
+  background-color: #ADD8E6;
+}
+
+.form-control {
+  position: relative;
+  font-size: 18px;
+  height: auto;
+  padding: 12px;
+}
+
+.company-admin{
+  text-align: justify;
+}
+
 
 
 

@@ -1,0 +1,50 @@
+<div class="panel-body row">
+  <div class="page-header">
+    <h1><%= @company.name %> company <small><%= @company.web_address %></small></h1>
+  </div>
+  <div class="col-sm-7">
+    <div class="panel-body row">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJkWG7M09pkQs1mttmnmKuYl1ebsBaOh2EBZbGOO26pIHbi9AHw" alt="" class="col-sm-4" />
+      <div class="col-sm-8"></div>
+      <p>Адрес:</p>
+      <% @company.addresses.each do |address| %>
+          <p><%= address.name %></p>
+      <% end %>
+    </div>
+    <div class="">
+      <p>О компании:</p>
+      <%= @company.description_long %>
+    </div>
+    <div>
+      <p>Контактный номер:</p>
+      <% @company.telephones.each do |phone| %>
+          <p><%= phone.phone %></p>
+      <% end %>
+    </div>
+    <div>
+      <p>Пишите нам на Email:</p>
+      <% @company.electronic_mails.each do |mail| %>
+          <p><%= mail.email %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-4 col-sm-offset-1">
+    <div class="list-group">
+      <p class="list-group-item list-group-item-info">Company offers</p>
+      <% @company.offers.each do |offer| %>
+          <%= link_to offer_path(offer), class: "list-group-item" do %>
+              <span><%= offer.name %></span>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="list-group">
+      <p class="list-group-item list-group-item-info">Company vacancies</p>
+      <% @company.job_vacancies.each do |vacancy| %>
+          <%= link_to job_vacancy_path(vacancy), class: "list-group-item" do %>
+              <span><%= vacancy.name %></span>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

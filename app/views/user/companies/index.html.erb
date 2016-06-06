@@ -1,1 +1,13 @@
-<h1>AdminPanel - Companies</h1>
+<div class="container">
+  <%= link_to new_user_company_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-8">
+      <% @companies.each do |company| %>
+          <%= render partial: 'element', locals: {company: company} %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -11,35 +11,38 @@
 <nav class="navbar navbar-default">
   <div class="container">
 
-    <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to "Акции", offers_path %></li>
-          <li><%= link_to "Вакансии", job_vacancies_path %></li>
-          <li><%= link_to "Предприятия", companies_path %></li>
+    <nav class="navbar navbar-inverse nav_menu row">
+
+      <div class="navbar-left col-sm-4">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Акции', offers_path %></li>
+          <li><%= link_to 'Предприятия', companies_path %></li>
+          <li><%= link_to 'Вакансии', job_vacancies_path %></li>
         </ul>
+      </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Admin Panel", user_companies_path %></li>
-          <li><%= link_to "Account", edit_user_registration_path %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %></li>
-        </ul>
+      <div class="navbar-text navbar-right row">
+        <% if user_signed_in? %>
+            <div class="col-sm-10 row">
+              <%= link_to "Админка", user_companies_path, class: "col-sm-6 btn btn-default" %>
+              <%= link_to "Account", edit_user_registration_path, class: "col-sm-6 btn btn-default" %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: 'delete', class: "col-sm-6 btn btn-default" %>
+            </div>
 
-    <% else %>
-        <ul class="nav navbar-nav navbar-left">
-          <li><%= link_to "Акции", offers_path %></li>
-          <li><%= link_to "Вакансии", job_vacancies_path %></li>
-          <li><%= link_to "Предприятия", companies_path %></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-        </ul>
-
-    <% end %>
-
+        <% else %>
+            <%= form_for(@user, url: user_session_path(@user)) do |f| %>
+                <%= f.email_field :email, autofocus: true, class: "col-sm-4" %>
+                <%= f.password_field :password, autocomplete: "off", class: "col-sm-4" %>
+                <div class="col-sm-4 row">
+                  <%= f.submit "Sign In", class: "col-sm-6 btn btn-default" %>
+                  <%= link_to "Sign Up", new_user_registration_path, class: "col-sm-6 btn btn-default" %>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+    </nav>
   </div>
- </nav>
+</nav>
 
 <%= yield %>
 
